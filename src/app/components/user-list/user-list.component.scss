@@ -1,0 +1,53 @@
+.user-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.userData-block{
+    margin-top: 3%;
+    margin-left: 4%;
+    width: 228.8px;
+    height: 150px;
+}
+
+.user-txt{
+    position: absolute;
+}
+
+.user-name-txt{
+    margin-top: 1px;
+}
+
+.user-id-txt{
+    margin-top: 15%;
+}
+
+.user-block-button{
+    margin-top: -10%;
+    margin-left: 3.5%;
+}
+
+.btn{
+    position: absolute;
+    width: 17%;
+}
+
+.button-info{
+    margin-left: 70%;
+    margin-top: -6%;
+}
+
+.button-edit{
+    margin-left: 51%;
+    margin-top: 12%;
+}
+
+.button-trash{
+    margin-left: 70%;
+    margin-top: 12%;
+}
+
+.no-users-txt{
+    position: absolute;
+    margin-left: 3%;
+}

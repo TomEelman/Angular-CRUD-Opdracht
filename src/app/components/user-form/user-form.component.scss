@@ -1,0 +1,73 @@
+  .create-txt {
+    display: block;
+  }
+
+  .arrow-back {
+    position: absolute;
+    cursor: pointer;
+    font-size: 2rem;
+    margin-top: 2.5%;
+    margin-left: 30%;
+  }
+
+  /*Form and form inputs */
+  .form-personnel {
+    margin-top: 3%;
+    margin-left: 35%;
+  }
+
+  .input {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .inputHalf {
+    width: 25%;
+  }
+
+  .inputQuarter {
+    width: 12.5%;
+  }
+
+  .input-label-street {
+    float: left;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 17.5%;
+  }
+
+  .input-label-streetnumber {
+    position: absolute;
+  }
+
+  .input-label-additive {
+    margin-left: 18%;
+  }
+
+  /*Submit button*/
+  .Submit-button {
+    background-color: #383838;
+    color: white;
+    position: absolute;
+    font-size: 22px;
+    box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    margin-top: 1%;
+    margin-left: 20%;
+    float: left;
+  }
+
+  .Submit-button:hover {
+    background-color: #000000;
+  }
+
+  .Submit-button.edit {
+    display: none;
+  }

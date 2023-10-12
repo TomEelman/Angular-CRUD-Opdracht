@@ -1,0 +1,36 @@
+<!-- router -->
+<a class="navbar-brand arrow-back" routerLink="/" ariaCurrentWhenActive="page"> <i class="bi bi-arrow-90deg-left"></i> </a>
+
+<form name="userForm" class="form-personnel">
+    <h2 name="create-txt" class="create-txt">Gebruiker aanmaken</h2>
+    <!-- Input Firstname -->
+    <input type="hidden" id="idInput">
+    <label for="firstname" class="input-label">Voornaam</label><br>
+    <input type="text" name="firstname" placeholder="* Voornaam..." class="input" [(ngModel)]="firstname"><br>
+    <!-- Input Infix -->
+    <label for="infix" class="input-label">Tussenvoegsel</label><br>
+    <input type="text" name="infix" placeholder="Tussenvoegsel..." class="input" [(ngModel)]="infix"><br>
+    <!-- Input Lastname -->
+    <label for="lastname" class="input-label">Achternaam</label><br>
+    <input type="text" name="lastname" placeholder="* Achternaam..." class="input" [(ngModel)]="lastname"><br>
+    <!-- Input City -->
+    <label for="city" class="input-label-city">Stad/Dorp en Postcode</label><br>
+    <input type="text" name="city" placeholder="* Stad/Dorp..." class="input inputHalf" [(ngModel)]="city">
+    <!-- Input Postalcode -->
+    <label for="postalcode" class="input-label-postalcode"></label>
+    <input type="text" name="postalcode" placeholder="* 8219HF..." class="input inputHalf" [(ngModel)]="postalcode">
+    <!-- Input-label Street and Streetnumber -->
+    <br>
+    <p for="street" class="input-label-street">Straatnaam</p>
+    <label for="streetnumber" class="input-label-streetnumber">Nr.</label>
+    <label for="additive" class="input-label-additive">Toev.</label><br>
+    <!-- Input Street -->
+    <input type="text" name="street" placeholder="* Johannesweg..." class="input inputHalf" [(ngModel)]="street">
+    <!-- Input Streetnumber -->
+    <input type="number" name="streetnumber" placeholder="* 23..." class="input inputQuarter" [(ngModel)]="streetnumber">
+    <!-- Input additive of street number -->
+    <input type="text" name="additive" placeholder="B..." class="input inputQuarter" [(ngModel)]="additive"><br>
+    <!-- Submit Button -->
+    <button (click)="addUser()" type="button" name="submitButtonCreate" class="btn Submit-button">Opslaan</button>
+</form>
+  

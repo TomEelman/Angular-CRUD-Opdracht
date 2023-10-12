@@ -1,45 +1,61 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  id: number | null = null;
-  firstname: string = '';
-  infix: string = '';
-  lastname: string = '';
-  city: string = '';
-  postalcode: string = '';
-  street: string = '';
-  streetnumber: number | null = null;
-  additive: string = '';
+  selectedUser: any; // Declare a variable to store the selected user data
+
+  public firstname: string = '';
+  public infix: string = '';
+  public lastname: string = '';
+  public city: string = '';
+  public postalcode: string = '';
+  public street: string = '';
+  public streetnumber: number | null = null;
+  public additive: string = '';
+
+
+  constructor(private router: Router) { }
 
   getUsersFromLocalStorage(): any[] {
     return JSON.parse(localStorage.getItem('userList') || '[]');
   }
 
-  validateUserData() {
-    let isValid = true;
+  addUser() {
 
-    if (
-      !this.firstname ||
-      !this.lastname ||
-      !this.city ||
-      !this.postalcode ||
-      !this.street ||
-      this.streetnumber
-    ) {
-      isValid = false;
-      alert("Vul alle velden met een * in");
+    const storedData = localStorage.getItem('userList');
+    let userList: any[] = storedData ? JSON.parse(storedData) : [];
+
+    const userData = {
+      id: Date.now(),
+      firstname: this.firstname,
+      infix: this.infix,
+      lastname: this.lastname,
+      city: this.city,
+      postalcode: this.postalcode,
+      street: this.street,
+      streetnumber: this.streetnumber,
+      additive: this.additive
+    };
+
+    userList.push(userData);
+
+    localStorage.setItem('userList', JSON.stringify(userList));
+
+    this.router.navigate(['']);
+  }
+
+  moreDetailsUser(user: any) {
+    this.selectedUser = user; // Set the selected user data
+    const openmodal = document.getElementById('exampleModal');
+    if (openmodal) {
+      openmodal.classList.add('show');
+      openmodal.style.display = 'block';
     }
-
-    return isValid;
-    
-  }
-
-  moreDetailsUser() {
-    console.log("info");
-  }
+  } 
 
   editUser() {
     console.log('edits');

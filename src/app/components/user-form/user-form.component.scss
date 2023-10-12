@@ -1,14 +1,10 @@
-  .create-txt {
-    display: block;
-  }
-
-  .arrow-back {
-    position: absolute;
-    cursor: pointer;
-    font-size: 2rem;
-    margin-top: 2.5%;
-    margin-left: 30%;
-  }
+.arrow-back {
+  position: absolute;
+  cursor: pointer;
+  font-size: 2rem;
+  margin-top: 2.5%;
+  margin-left: 30%;
+}
 
   /*Form and form inputs */
   .form-personnel {
@@ -66,8 +62,4 @@
 
   .Submit-button:hover {
     background-color: #000000;
-  }
-
-  .Submit-button.edit {
-    display: none;
   }

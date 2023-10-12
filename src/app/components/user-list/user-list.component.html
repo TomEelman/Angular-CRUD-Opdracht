@@ -5,13 +5,13 @@
       <p>ID: {{ user.id }}</p>
     </div>
     <div class="user-block-button">
-      <button class="btn btn-primary button-info" (click)="moreDetailsUserButton()">
+      <button class="btn user-btn btn-primary button-info" (click)="moreDetailsUserButton(user)">
         <i class="bi bi-info-lg"></i>
       </button>
-      <button class="btn btn-warning button-edit" (click)="editUserButton()">
+      <button class="btn user-btn btn-warning button-edit" (click)="editUserButton()">
         <i class="bi bi-pen"></i>
       </button>
-      <button class="btn btn-danger button-trash" (click)="deleteUserButton(user.id)">
+      <button class="btn user-btn btn-danger button-trash" (click)="deleteUserButton(user.id)">
         <i class="bi bi-trash"></i>
       </button>
     </div>
@@ -20,3 +20,38 @@
 <ng-template #noUsersMessage>
   <h1 class="p-5 no-users-txt">Geen gebruikers gevonden</h1>
 </ng-template>
+
+
+<div *ngIf="users.length > 0; else noUsersMessage">
+  <div *ngFor="let user of users">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Details van Id: {{ this.userService.selectedUser?.id }} </h1>
+            <button class="btn-close" (click)="closeUserModalButton()"></button>
+          </div>
+          <div class="modal-body">
+
+            <h3>Naam: {{ this.userService.selectedUser?.firstname }} {{ this.userService.selectedUser?.infix }} {{
+              this.userService.selectedUser?.lastname }}</h3>
+              <br>
+            <p>Adres: {{ this.userService.selectedUser?.city }}
+                      {{ this.userService.selectedUser?.postalcode }}
+                      {{ this.userService.selectedUser?.street }}
+                      {{ this.userService.selectedUser?.streetnumber }}
+                      {{ this.userService.selectedUser?.additive }}</p>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="deleteUserButton(user.id)"> <i
+                class="bi bi-trash"></i> </button>
+            <button type="button" class="btn btn-warning" (click)="editUserButton()"> <i class="bi bi-pen"></i>
+            </button>
+            <button type="button" class="btn btn-secondary" (click)="closeUserModalButton()">Sluiten</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,14 +7,22 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent {
-  users: any[] = [];
+  users: any[];
 
-  constructor(private userService: UserService) {
+  constructor(public userService: UserService) {
     this.users = this.userService.getUsersFromLocalStorage();
+
   }
 
-  moreDetailsUserButton() {
-    this.userService.moreDetailsUser();
+  closeUserModalButton(){
+    const closemodal = document.getElementById('exampleModal');
+    if (closemodal) {
+      closemodal.style.display = 'none';
+    }  
+  }
+
+  moreDetailsUserButton(user: any) {
+    this.userService.moreDetailsUser(user);
   }
 
   editUserButton() {
@@ -24,4 +32,5 @@ export class UserListComponent {
   deleteUserButton(userId: number) {
     this.userService.deleteUser(userId);
   }
+  
 }

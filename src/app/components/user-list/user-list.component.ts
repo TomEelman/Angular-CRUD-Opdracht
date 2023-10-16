@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { User } from 'src/app/classes/user.class';
 
 @Component({
   selector: 'app-user-list',
@@ -7,6 +8,7 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent {
+  isModalOpen: boolean = false;
   users: any[];
 
   constructor(public userService: UserService) {
@@ -14,14 +16,16 @@ export class UserListComponent {
 
   }
 
-  closeUserModalButton(){
-    const closemodal = document.getElementById('exampleModal');
+  closeUserModalButton() {
+    this.isModalOpen = false;
+    const closemodal = document.getElementById('userModal');
     if (closemodal) {
       closemodal.style.display = 'none';
-    }  
+    }
   }
 
   moreDetailsUserButton(user: any) {
+    this.isModalOpen = true;
     this.userService.moreDetailsUser(user);
   }
 
@@ -32,5 +36,5 @@ export class UserListComponent {
   deleteUserButton(userId: number) {
     this.userService.deleteUser(userId);
   }
-  
+
 }

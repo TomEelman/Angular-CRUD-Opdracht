@@ -49,13 +49,13 @@ export class UserService {
   }
 
   moreDetailsUser(user: any) {
-    this.selectedUser = user; // Set the selected user data
-    const openmodal = document.getElementById('exampleModal');
+    this.selectedUser = user;
+    const openmodal = document.getElementById('userModal');
     if (openmodal) {
       openmodal.classList.add('show');
       openmodal.style.display = 'block';
     }
-  } 
+  }
 
   editUser() {
     console.log('edits');

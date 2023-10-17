@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../classes/user.class';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,7 @@ import { Router } from '@angular/router';
 export class UserService {
   selectedUser: any;
 
+  private userList = 'userList';
   public firstname: string = '';
   public infix: string = '';
   public lastname: string = '';
@@ -16,11 +18,20 @@ export class UserService {
   public streetnumber: number | null = null;
   public additive: string = '';
 
-
   constructor(private router: Router) { }
 
   getUsersFromLocalStorage(): any[] {
-    return JSON.parse(localStorage.getItem('userList') || '[]');
+    const usersJson = localStorage.getItem(this.userList);
+    return usersJson ? JSON.parse(usersJson) : [];
+  }
+
+  getUserById(userId: number): User | null {
+    const users: User[] = this.getUsersFromLocalStorage();
+    const userData = users.find(user => user.id === userId) || null
+    if (userData) {
+      return new User(userData);
+    }
+    return null;
   }
 
   addUser() {
@@ -43,7 +54,7 @@ export class UserService {
     userList.push(userData);
 
     localStorage.setItem('userList', JSON.stringify(userList));
-
+    
     this.router.navigate(['']);
     
   }
@@ -68,9 +79,10 @@ export class UserService {
     if (confirm("Weet je het zeker dit zal deze gebruiker verwijderen!")) {
       userData.splice(userIndex, 1);
       localStorage.setItem('userList', JSON.stringify(userData));
-      this.locationReload()
+      this.router.navigate(['']);
+      this.locationReload();
     } else {
-      this.locationReload()
+      this.locationReload();
     }
   }
 

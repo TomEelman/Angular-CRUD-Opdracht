@@ -12,19 +12,9 @@ export class UserListComponent {
 
   constructor(public userService: UserService) {
     this.users = this.userService.getUsersFromLocalStorage();
-
-  }
-
-  closeUserModalButton() {
-    this.isModalOpen = false;
-    const closemodal = document.getElementById('userModal');
-    if (closemodal) {
-      closemodal.style.display = 'none';
-    }
   }
 
   moreDetailsUserButton(user: any) {
-    this.isModalOpen = true;
     this.userService.moreDetailsUser(user);
   }
 

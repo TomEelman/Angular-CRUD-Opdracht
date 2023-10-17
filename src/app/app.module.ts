@@ -11,6 +11,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { UserDetailPageComponent } from './components/user-detail-page/user-detail-page.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UserListComponent } from './components/user-list/user-list.component';
     HeaderComponent,
     MainComponent,
     FooterComponent,
-    UserListComponent
+    UserListComponent,
+    UserDetailPageComponent
   ],
 
   imports: [

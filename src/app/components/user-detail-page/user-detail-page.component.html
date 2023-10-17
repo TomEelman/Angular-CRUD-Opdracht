@@ -1,0 +1,34 @@
+<!-- router -->
+<a class="navbar-brand arrow-back" routerLink="/" ariaCurrentWhenActive="page"> <i class="bi bi-arrow-90deg-left"></i>
+</a>
+
+<button class="btn user-btn btn-warning btn-detail-page delete-button" (click)="editUserButton()">
+    <i class="bi bi-pen"></i>
+</button>
+<button class="btn user-btn btn-danger btn-detail-page edit-button" (click)="deleteUserButton(userId)">
+    <i class="bi bi-trash"></i>
+</button>
+
+<div class="user-detail-body">
+    <div *ngIf="user">
+        <div class="card text-center">
+            <div class="card-header">
+                Details van {{ user.firstname }} {{ user.lastname }}.
+            </div>
+            <div class="card-body">
+
+                <h4 class="card-title"><strong>User ID:</strong>
+                    {{ user.id }}</h4>
+                
+                <h5 class="card-text"><strong>Naam:</strong>  
+                    {{ user.fullName }}</h5>
+
+                <h5 class="card-text"><strong>Woonplaats:</strong>
+                    {{ user.Adress }}</h5>
+
+                <h5><strong>Straat + Huisnummer:</strong>
+                    {{ user.residentialDetails }}</h5>
+                    
+            </div>
+        </div>
+    </div>

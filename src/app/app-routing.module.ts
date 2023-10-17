@@ -7,6 +7,7 @@ import { MainComponent } from './components/main/main.component';
 const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'userForm', component: UserFormComponent },
+  { path: 'edit', component: UserFormComponent },
 ];
 
 @NgModule({

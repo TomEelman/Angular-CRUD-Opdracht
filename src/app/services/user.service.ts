@@ -5,8 +5,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class UserService {
-
-  selectedUser: any; // Declare a variable to store the selected user data
+  selectedUser: any;
 
   public firstname: string = '';
   public infix: string = '';
@@ -46,6 +45,7 @@ export class UserService {
     localStorage.setItem('userList', JSON.stringify(userList));
 
     this.router.navigate(['']);
+    
   }
 
   moreDetailsUser(user: any) {

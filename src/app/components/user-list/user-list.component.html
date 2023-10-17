@@ -21,9 +21,6 @@
   <h1 class="p-5 no-users-txt">Geen gebruikers gevonden</h1>
 </ng-template>
 
-<a class="navbar-brand addUserIcon" routerLink="/userForm" routerLinkActive="active" ariaCurrentWhenActive="page">
-  <i class="bi bi-person-fill-add text-light"></i>
-</a>
 
 <div *ngIf="users.length > 0; else noUsersMessage">
   <div class="modal-background" *ngIf="isModalOpen" (click)="closeUserModalButton()"></div>
@@ -55,8 +52,8 @@
 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger" (click)="deleteUserButton(user.id)"> <i
-                class="bi bi-trash"></i> </button>
+            <button type="button" class="btn btn-danger" (click)="deleteUserButton(user.id)"> <i class="bi bi-trash"></i> </button>
+
             <button type="button" class="btn btn-warning" (click)="editUserButton()"> <i class="bi bi-pen"></i>
             </button>
             <button type="button" class="btn btn-secondary" (click)="closeUserModalButton()">Sluiten</button>

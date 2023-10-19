@@ -7,7 +7,7 @@ export class User {
   public city: string;
   public postalcode: string;
   public street: string;
-  public streetnumber: string;
+  public streetnumber: number;
   public additive: string;
 
   constructor(userData: any) {
@@ -34,7 +34,7 @@ export class User {
     }
   }
 
-  public get Adress() {
+  public get address() {
     return `${this.city} ${this.postalcode}`
   }
 

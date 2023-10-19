@@ -22,8 +22,8 @@ export class UserDetailPageComponent {
     )
   }
 
-  editUserButton() {
-    this.userService.editUser();
+  toggleEditFormButton(){
+    this.userService.toggleEditForm();
   }
 
   deleteUserButton(userId: number) {

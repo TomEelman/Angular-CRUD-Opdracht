@@ -2,7 +2,7 @@
 <a class="navbar-brand arrow-back" routerLink="/" ariaCurrentWhenActive="page"> <i class="bi bi-arrow-90deg-left"></i>
 </a>
 
-<button class="btn user-btn btn-warning btn-detail-page delete-button" (click)="editUserButton()">
+<button class="btn user-btn btn-warning btn-detail-page delete-button" (click)="toggleEditFormButton()">
     <i class="bi bi-pen"></i>
 </button>
 <button class="btn user-btn btn-danger btn-detail-page edit-button" (click)="deleteUserButton(userId)">
@@ -24,7 +24,7 @@
                     {{ user.fullName }}</h5>
 
                 <h5 class="card-text"><strong>Woonplaats:</strong>
-                    {{ user.Adress }}</h5>
+                    {{ user.address }}</h5>
 
                 <h5><strong>Straat + Huisnummer:</strong>
                     {{ user.residentialDetails }}</h5>

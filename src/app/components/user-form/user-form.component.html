@@ -2,9 +2,9 @@
 <a class="navbar-brand arrow-back" routerLink="/" ariaCurrentWhenActive="page"> <i class="bi bi-arrow-90deg-left"></i> </a>
 
 <form name="userForm" class="form-personnel">
-    <h2 name="create-txt" class="create-txt">Gebruiker aanmaken</h2>
+    <div  name="create-txt" class="create-txt">{{ userService.modeText }} Gebruiker</div>
     <!-- Input Firstname -->
-    <input type="hidden" id="idInput">
+    <input type="hidden" name="id" [(ngModel)]="userService.id">
     <label for="firstname" class="input-label">Voornaam</label><br>
     <input type="text" class="input" placeholder="* Voornaam..." name="firstname" maxlength="13" [(ngModel)]="userService.firstname" ngbTooltip="Vul alle velden met een * in" required><br>
     <!-- Input Infix -->
@@ -30,9 +30,13 @@
     <input type="number" name="streetnumber" placeholder="* 23..." class="input inputQuarter" maxlength="13" [(ngModel)]="userService.streetnumber">
     <!-- Input additive of street number -->
     <input type="text" name="additive" placeholder="B..." class="input inputQuarter" maxlength="2" [(ngModel)]="userService.additive"><br>
-    <!-- Submit Button -->        
-    <button (click)="addUserButton()" type="button" name="submitButtonCreate" class="btn Submit-button"
-    [disabled]="!userService.firstname || !userService.lastname || !userService.city || !userService.postalcode || !userService.street || !userService.streetnumber">Opslaan</button>
+    <!-- Submit Button -->   
+         
+<!-- Display this button in edit mode -->
+<button *ngIf="userService.isEditMode" (click)="onSubmit()" type="button" name="submitButtonEdit" class="btn Submit-button"
+    [disabled]="!userService.firstname || !userService.lastname || !userService.city || !userService.postalcode || !userService.street || !userService.streetnumber">Bijwerken</button>
 
+<!-- Display this button in adding mode -->
+<button *ngIf="!userService.isEditMode" (click)="onSubmit()" type="button" name="submitButtonCreate" class="btn Submit-button"
+    [disabled]="!userService.firstname || !userService.lastname || !userService.city || !userService.postalcode || !userService.street || !userService.streetnumber">Toevoegen</button>
 </form>
-  

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { User } from 'src/app/classes/user.class';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-form',
@@ -9,14 +9,19 @@ import { User } from 'src/app/classes/user.class';
   styleUrls: ['./user-form.component.scss']
 })
 export class UserFormComponent {
+  user?: User | null = null;
+  userId!: number;
 
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService, private router: Router) {
+    this.userService.updateModeText();
+  }
 
-addUserButton(){
-  this.userService.addUser();
+  onSubmit() {
+    if (confirm("Dit zal de gebruiker zijn informatie aanpassen!"), this.userService.isEditMode) {
+      this.userService.editUser();
+      this.router.navigate(['']);
+    } else {
+      this.userService.addUser();
+    }
+  }
 }
-
-}
-
-
-

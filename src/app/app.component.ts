@@ -9,6 +9,7 @@ import { UserService } from './services/user.service'; // Import your UserServic
 export class AppComponent {
   [x: string]: any;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {}
+
 
 }

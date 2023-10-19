@@ -4,16 +4,16 @@
       <p>Naam: {{ user.firstname }} {{ user.lastname }}</p>
       <p>ID: {{ user.id }}</p>
     </div>
-      <button class="btn user-btn btn-primary button-info" [routerLink]="['/detail', user.id]">
-        <i class="bi bi-info-lg"></i>
-      </button>
-      <button class="btn user-btn btn-warning button-edit" (click)="toggleEditFormButton(user.id)">
-        <i class="bi bi-pen"></i>
-      </button>
-      <button class="btn user-btn btn-danger button-trash" (click)="deleteUserButton(user.id)">
-        <i class="bi bi-trash"></i>
-      </button>
-    </div>
+    <button class="btn user-btn btn-primary button-info" [routerLink]="['/detail', user.id]">
+      <i class="bi bi-info-lg"></i>
+    </button>
+    <button class="btn user-btn btn-warning button-edit" (click)="toggleEditFormButton(user.id)">
+      <i class="bi bi-pen"></i>
+    </button>
+    <button class="btn user-btn btn-danger button-trash" (click)="deleteUserButton(user.id)">
+      <i class="bi bi-trash"></i>
+    </button>
+  </div>
 </div>
 <ng-template #noUsersMessage>
   <h1 class="p-5 no-users-txt">Geen gebruikers gevonden</h1>

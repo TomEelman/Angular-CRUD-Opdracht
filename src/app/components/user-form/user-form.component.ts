@@ -17,11 +17,21 @@ export class UserFormComponent {
   }
 
   onSubmit() {
-    if (confirm("Dit zal de gebruiker zijn informatie aanpassen!"), this.userService.isEditMode) {
-      this.userService.editUser();
-      this.router.navigate(['']);
+
+    if (this.userService.isEditMode) {
+
+      if (confirm("Dit zal de gebruiker zijn informatie aanpassen!")) {
+
+        this.userService.editUser();
+
+        this.router.navigate(['']);
+      } else {
+
+      }
     } else {
+
       this.userService.addUser();
+
     }
   }
 }

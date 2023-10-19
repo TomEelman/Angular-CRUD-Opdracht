@@ -1,41 +1,45 @@
-*{
+* {
     overflow-y: hidden;
 }
-body{
+
+body {
     height: 1500px;
 }
+
 .user-list {
     display: flex;
     flex-wrap: wrap;
 }
+
 // The user block displayed on the page
-.userData-block{
+.userData-block {
     margin-top: 3%;
     margin-left: 4%;
     width: 228.8px;
     height: 150px;
 }
 
-.user-btn{
+.user-btn {
     position: fixed;
 }
 
-.button-info{
+.button-info {
     top: 17%;
     margin-left: 8.5%;
 }
 
-.button-edit{
+.button-edit {
     top: 21.1%;
     margin-left: 6%;
 }
 
-.button-trash{
+.button-trash {
     top: 21.1%;
     margin-left: 8.5%;
 }
+
 // If no users show this txt
-.no-users-txt{
+.no-users-txt {
     position: absolute;
     margin-left: 3%;
 }

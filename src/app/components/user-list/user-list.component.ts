@@ -26,25 +26,13 @@ export class UserListComponent {
   }
 
   toggleEditFormButton(userId: number) {
-
-    const selectedUser = this.userService.getUserById(userId);
+    this.userService.userId = userId;
     this.userService.toggleEditForm();
-
-    if (selectedUser) {
-      this.userService.id = selectedUser.id;
-      this.userService.firstname = selectedUser.firstname;
-      this.userService.infix = selectedUser.infix;
-      this.userService.lastname = selectedUser.lastname;
-      this.userService.city = selectedUser.city;
-      this.userService.postalcode = selectedUser.postalcode;
-      this.userService.street = selectedUser.street;
-      this.userService.streetnumber = selectedUser.streetnumber;
-      this.userService.additive = selectedUser.additive;
-    }
   }
 
   deleteUserButton(userId: number) {
     this.userService.deleteUser(userId);
+    this.userService.locationReload();
   }
 
 }

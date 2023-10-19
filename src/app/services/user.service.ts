@@ -6,10 +6,11 @@ import { User } from '../classes/user.class';
   providedIn: 'root'
 })
 export class UserService {
-  selectedUser: any;
   isEditMode: boolean = false;
   modeText!: string;
+  selectedUser: any;
   userId!: number;
+
 
   private userList = 'userList';
   public id: number | null = null;
@@ -44,21 +45,43 @@ export class UserService {
 
   toggleEditForm() {
     this.isEditMode = !this.isEditMode;
+
     this.updateModeText();
+
     if (this.isEditMode) {
+
+      this.fillFormInputs();
+
       this.router.navigate(['/userForm']);
+
     }
   }
 
-  clearFormInputs(){
-        this.firstname = '';
-        this.infix = '';
-        this.lastname = '';
-        this.city = '';
-        this.postalcode = '';
-        this.street = '';
-        this.streetnumber = 0;
-        this.additive = '';
+  fillFormInputs() {
+    const selectedUser = this.getUserById(this.userId);
+
+    if (selectedUser) {
+      this.id = selectedUser.id;
+      this.firstname = selectedUser.firstname;
+      this.infix = selectedUser.infix;
+      this.lastname = selectedUser.lastname;
+      this.city = selectedUser.city;
+      this.postalcode = selectedUser.postalcode;
+      this.street = selectedUser.street;
+      this.streetnumber = selectedUser.streetnumber;
+      this.additive = selectedUser.additive;
+    }
+  }
+
+  clearFormInputs() {
+    this.firstname = '';
+    this.infix = '';
+    this.lastname = '';
+    this.city = '';
+    this.postalcode = '';
+    this.street = '';
+    this.streetnumber = null;
+    this.additive = '';
   }
 
   updateModeText() {
@@ -91,13 +114,13 @@ export class UserService {
   }
 
   editUser() {
-    const editUserId = this.getUserById(this.userId);
+    const editUserId = this.userId;
     const userData = this.getUsersFromLocalStorage();
-    const editUserIndex = userData.findIndex((user) => user.Id == editUserId);
+    const editUserIndex = userData.findIndex((user) => user.id === editUserId);
 
     if (editUserIndex !== -1) {
       userData[editUserIndex] = {
-        id: this.id,
+        id: editUserId,
         firstname: this.firstname,
         infix: this.infix,
         lastname: this.lastname,
@@ -112,7 +135,6 @@ export class UserService {
     }
   }
 
-
   deleteUser(userId: number): void {
     let userData = this.getUsersFromLocalStorage();
     const userIndex = userData.findIndex((user) => user.id === userId);
@@ -121,12 +143,10 @@ export class UserService {
       userData.splice(userIndex, 1);
       localStorage.setItem('userList', JSON.stringify(userData));
       this.router.navigate(['']);
-      this.locationReload();
-      location.replace("localhost:4200");
     } else {
-      location.replace("localhost:4200");
+      this.router.navigate(['']);
     }
-    this.locationReload();
+    location.replace("localhost:4200");
   }
 
   locationReload() {

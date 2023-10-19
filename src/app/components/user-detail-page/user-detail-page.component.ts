@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../classes/user.class';
 
 @Component({
@@ -12,7 +12,7 @@ export class UserDetailPageComponent {
   user?: User | null = null;
   userId!: number;
 
-  constructor(private route: ActivatedRoute, private userService: UserService) {
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) {
     this.userService.getUsersFromLocalStorage();
 
     this.route.paramMap.subscribe(params => {
@@ -22,11 +22,13 @@ export class UserDetailPageComponent {
     )
   }
 
-  toggleEditFormButton(){
+  toggleEditFormButton(userId: number) {
+    this.userService.userId = userId;
     this.userService.toggleEditForm();
   }
 
   deleteUserButton(userId: number) {
     this.userService.deleteUser(userId);
+    this.router.navigate(['']);
   }
 } 

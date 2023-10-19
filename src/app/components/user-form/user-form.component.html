@@ -2,6 +2,8 @@
 <a class="navbar-brand arrow-back" routerLink="/" ariaCurrentWhenActive="page"> <i class="bi bi-arrow-90deg-left"></i>
 </a>
 
+
+
 <form name="userForm" class="form-personnel">
     <div name="create-txt" class="create-txt">{{ userService.modeText }} Gebruiker</div>
     <input type="hidden" name="id" [(ngModel)]="userService.id">
@@ -51,3 +53,9 @@
         class="btn Submit-button"
         [disabled]="!userService.firstname || !userService.lastname || !userService.city || !userService.postalcode || !userService.street || !userService.streetnumber">Toevoegen</button>
 </form>
+
+<div class="tool-tip">
+    <p>
+        Vul alle velden met * in !
+    </p>
+</div>

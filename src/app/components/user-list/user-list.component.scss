@@ -11,14 +11,6 @@ body {
     flex-wrap: wrap;
 }
 
-// The user block displayed on the page
-.userData-block {
-    margin-top: 3%;
-    margin-left: 4%;
-    width: 228.8px;
-    height: 150px;
-}
-
 .user-btn {
     position: fixed;
 }
@@ -36,6 +28,58 @@ body {
 .button-trash {
     top: 21.1%;
     margin-left: 8.5%;
+}
+
+/* Styles for Grote scherm */
+@media (min-width: 1900px) and (max-width: 1950px) {
+    .user-btn {
+        position: fixed;
+    }
+
+    .button-info {
+        top: 17%;
+        margin-left: 8.5%;
+    }
+
+    .button-edit {
+        top: 21.1%;
+        margin-left: 6%;
+    }
+
+    .button-trash {
+        top: 21.1%;
+        margin-left: 8.5%;
+    }
+}
+
+/* Styles for laptop scherm */
+@media (min-width: 1536px) and (max-width: 1536px) {
+    .user-btn {
+        position: fixed;
+    }
+
+    .button-info {
+        top: 21%;
+        margin-left: 10.6%;
+    }
+
+    .button-edit {
+        top: 26%;
+        margin-left: 7.6%;
+    }
+
+    .button-trash {
+        top: 26%;
+        margin-left: 10.6%;
+    }
+}
+
+// The user block displayed on the page
+.userData-block {
+    margin-top: 3%;
+    margin-left: 4%;
+    width: 228.8px;
+    height: 150px;
 }
 
 // If no users show this txt

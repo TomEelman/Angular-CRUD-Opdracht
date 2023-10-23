@@ -3,7 +3,6 @@
     <div class="user-block-text">
       <p>Naam: {{ user.firstname }} {{ user.lastname }}</p>
       <p>ID: {{ user.id }}</p>
-    </div>
     <button class="btn user-btn btn-primary button-info" [routerLink]="['/detail', user.id]">
       <i class="bi bi-info-lg"></i>
     </button>
@@ -13,6 +12,7 @@
     <button class="btn user-btn btn-danger button-trash" (click)="deleteUserButton(user.id)">
       <i class="bi bi-trash"></i>
     </button>
+  </div>
   </div>
 </div>
 <ng-template #noUsersMessage>

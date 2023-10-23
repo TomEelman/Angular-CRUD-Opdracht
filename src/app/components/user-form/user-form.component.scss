@@ -1,4 +1,4 @@
-*{
+* {
   overflow-y: hidden;
   overflow-x: hidden;
 }
@@ -65,7 +65,6 @@
 .Submit-button {
   background-color: #383838;
   color: white;
-  position: absolute;
   font-size: 22px;
   box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.4);
   position: relative;
@@ -80,7 +79,7 @@
   background-color: #000000;
 }
 
-.tool-tip{
+.tool-tip {
   position: fixed;
   border: none;
   border-radius: 0px 40px 10px;
@@ -89,4 +88,98 @@
   width: 14%;
   top: 23%;
   left: 12%;
+}
+
+/* Styles for mobile scherm */
+@media (min-width: 200px) and (max-width: 450px) {
+
+  .create-txt {
+    margin-top: 2%;
+    margin-left: 20%;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .arrow-back {
+    cursor: pointer;
+    position: fixed;
+    bottom: 100px;
+    right: 190px;
+    background: #000;
+    padding: 0.75%;
+    font-size: 2.5rem;
+    border-radius: 15px;
+  }
+
+  .arrow-back:hover {
+    background: #3d3d3d;
+    padding: 0.73%
+  }
+
+  /*Form and form inputs */
+  .form-personnel {
+    margin-top: 3%;
+    margin-left: 0;
+  }
+
+  .input {
+    position: relative;
+    left: 10%;
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .inputHalf {
+    width: 40%;
+  }
+
+  .inputQuarter {
+    width: 20%;
+  }
+
+  .input-label {
+    margin-left: 10%;
+  }
+
+  .input-label-street {
+    float: left;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 11%;
+  }
+
+  .input-label-streetnumber {
+    position: absolute;
+  }
+
+  .input-label-additive {
+    margin-left: 18%;
+  }
+
+  /*Submit button*/
+  .Submit-button {
+    background-color: #383838;
+    color: white;
+    font-size: 22px;
+    box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    margin-top: 1%;
+    margin-left: 32%;
+  }
+
+  .Submit-button:hover {
+    background-color: #000000;
+  }
+
+  .tool-tip {
+    display: none;
+  }
+
 }

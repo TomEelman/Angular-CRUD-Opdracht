@@ -1,23 +1,34 @@
-* {
-    overflow-y: hidden;
+.user-list{
+    display: flex;
+    flex-wrap: wrap;
+    width: 1000px;
+    margin: 1rem auto;
 }
 
-body {
-    height: 1500px;
-}
-
-// The user block displayed on the page
-.userData-block {
-    margin-top: 3%;
-    margin-left: 4%;
-    width: 228.8px;
-    height: 150px;
+.header{
+    width: 1000px;
+    height: 50px;
+    margin: 1rem auto;
 }
 
 // If no users show this txt
 .no-users-txt {
     position: absolute;
     margin-left: 3%;
+}
+
+// The user block displayed on the page
+.user-data {
+    border: 1px solid gray;
+    position: relative;
+    overflow: hidden;
+    margin: 1rem;
+    width: 250px;
+    height: 150px;
+    .buttons{
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 // Add user icon
@@ -35,135 +46,4 @@ body {
 .addUserIcon:hover {
     background: #3d3d3d;
     padding: 0.73%
-}
-
-.user-list {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.user-btn {
-    position: fixed;
-}
-
-.button-info {
-    top: 17%;
-    margin-left: 8.5%;
-}
-
-.button-edit {
-    top: 21.1%;
-    margin-left: 6%;
-}
-
-.button-trash {
-    top: 21.1%;
-    margin-left: 8.5%;
-}
-
-/* Styles for Grote scherm */
-@media (min-width: 1900px) and (max-width: 1950px) {
-    .user-btn {
-        position: fixed;
-    }
-
-    .button-info {
-        top: 17%;
-        margin-left: 8.5%;
-    }
-
-    .button-edit {
-        top: 21.1%;
-        margin-left: 6%;
-    }
-
-    .button-trash {
-        top: 21.1%;
-        margin-left: 8.5%;
-    }
-}
-
-/* Styles for laptop scherm */
-@media (min-width: 1536px) and (max-width: 1536px) {
-    .user-btn {
-        position: fixed;
-    }
-
-    .button-info {
-        top: 21%;
-        margin-left: 10.6%;
-    }
-
-    .button-edit {
-        top: 26%;
-        margin-left: 7.6%;
-    }
-
-    .button-trash {
-        top: 26%;
-        margin-left: 10.6%;
-    }
-}
-
-/* Styles for mobile scherm */
-@media (min-width: 200px) and (max-width: 450px) {
-
-    // If no users show this txt
-    .no-users-txt {
-        position: absolute;
-        margin-left: 3%;
-    }
-
-    // The user block displayed on the page
-    .userData-block {
-        margin-top: 3%;
-        margin-left: 4%;
-        margin-right: 4%;
-        width: 100%;
-        height: 10%;
-    }
-
-    // Add user icon
-    .addUserIcon {
-        cursor: pointer;
-        position: fixed;
-        bottom: 80px;
-        right: 20px;
-        background: #000;
-        padding: 0.75%;
-        font-size: 2.5rem;
-        border-radius: 15px;
-    }
-
-    .addUserIcon:hover {
-        background: #3d3d3d;
-        padding: 0.73%
-    }
-
-    .user-list {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .user-btn {
-        position: absolute;
-    }
-
-    .button-info {
-        top: 1.5%;
-        right: 29%;
-        bottom: 1.5%;
-    }
-
-    .button-edit {
-        top: 1.5%;
-        right: 15%;
-        bottom: 1.5%;
-    }
-
-    .button-trash {
-        top: 1.5%;
-        right: 1.5%;
-        bottom: 1.5%;
-    }
 }

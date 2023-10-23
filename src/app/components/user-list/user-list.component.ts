@@ -1,38 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/classes/user.class';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.scss']
+    selector: 'app-user-list',
+    templateUrl: './user-list.component.html',
+    styleUrls: ['./user-list.component.scss']
 })
-export class UserListComponent {
-  user?: User | null = null;
-  userId!: number;
-  users: any[];
+export class UserListComponent implements OnDestroy, OnInit{
+    public users!: User[];
+    private unsubscriber$ = new Subject();
 
-  constructor(private route: ActivatedRoute, public userService: UserService) {
-    this.users = this.userService.getUsersFromLocalStorage();
-    this.userService.clearFormInputs();
-    this.userService.isEditMode = false;
-
-    this.route.paramMap.subscribe(params => {
-      this.userId = +params.get('id')! || 0;
-      this.user = this.userService.getUserById(this.userId);
+    constructor(public userService: UserService) {
+        this.userService.deleteUser$
+        .pipe(takeUntil(this.unsubscriber$))
+        .subscribe((x) => {
+            this.userService.getUsers();
+        })
     }
-    )
-  }
 
-  toggleEditFormButton(userId: number) {
-    this.userService.userId = userId;
-    this.userService.toggleEditForm();
-  }
+    ngOnInit(): void {
+        this.getUsers();
+    }
 
-  deleteUserButton(userId: number) {
-    this.userService.deleteUser(userId);
-    this.userService.locationReload();
-  }
+    getUsers() {
+        this.users = this.userService.getUsers();
+    }
 
+    deleteUser(userId: number) {
+        this.userService.deleteUser(userId);
+    }
+
+    ngOnDestroy(): void {
+        this.unsubscriber$.next("unsubscribe");
+        this.unsubscriber$.complete();
+    }
 }

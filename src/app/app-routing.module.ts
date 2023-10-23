@@ -8,6 +8,7 @@ import { UserDetailPageComponent } from './components/user-detail-page/user-deta
 const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'userForm', component: UserFormComponent },
+  { path: 'userForm/:id', component: UserFormComponent },
   { path: 'detail/:id', component: UserDetailPageComponent },
 ];
 

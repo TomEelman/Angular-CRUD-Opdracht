@@ -2,13 +2,6 @@
 <a class="navbar-brand arrow-back" routerLink="/" ariaCurrentWhenActive="page"> <i class="bi bi-arrow-90deg-left"></i>
 </a>
 
-<button class="btn user-btn btn-warning btn-detail-page delete-button" (click)="toggleEditFormButton(userId)">
-    <i class="bi bi-pen"></i>
-</button>
-<button class="btn user-btn btn-danger btn-detail-page edit-button" (click)="deleteUserButton(userId)">
-    <i class="bi bi-trash"></i>
-</button>
-
 <div class="user-detail-body">
     <div *ngIf="user">
         <div class="card text-center">

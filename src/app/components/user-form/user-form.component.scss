@@ -23,42 +23,52 @@
 }
 
 /*Form and form inputs */
+
 .form-personnel {
   margin-top: 3%;
   margin-left: 35%;
+  width: 600px;
 }
 
+.postalcode-city{
+  display: flex;
+  justify-content: space-between;
+  .postalcode{
+    width: 25%;
+  }
+  .city{
+    width: 70%;
+  }
+}
+
+.address{
+  display: flex;
+  justify-content: space-between;
+  .input-label{
+    display: block;
+  }
+  .street{
+    width: 50%;
+  }
+  .number, .additive{
+    width: 20%;
+  }
+}
+
+.buttons{
+  text-align: right;
+  margin-top: 20px;
+}
+
+
 .input {
-  width: 50%;
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-}
-
-.inputHalf {
-  width: 25%;
-}
-
-.inputQuarter {
-  width: 12.5%;
-}
-
-.input-label-street {
-  float: left;
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-right: 17.5%;
-}
-
-.input-label-streetnumber {
-  position: absolute;
-}
-
-.input-label-additive {
-  margin-left: 18%;
 }
 
 /*Submit button*/
@@ -70,9 +80,6 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  margin-top: 1%;
-  margin-left: 20%;
-  float: left;
 }
 
 .Submit-button:hover {

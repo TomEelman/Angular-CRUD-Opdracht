@@ -8,16 +8,16 @@ import { Subject, takeUntil } from 'rxjs';
     templateUrl: './user-list.component.html',
     styleUrls: ['./user-list.component.scss']
 })
-export class UserListComponent implements OnDestroy, OnInit{
+export class UserListComponent implements OnDestroy, OnInit {
     public users!: User[];
     private unsubscriber$ = new Subject();
 
     constructor(public userService: UserService) {
         this.userService.deleteUser$
-        .pipe(takeUntil(this.unsubscriber$))
-        .subscribe((x) => {
-            this.userService.getUsers();
-        })
+            .pipe(takeUntil(this.unsubscriber$))
+            .subscribe((x) => {
+                this.userService.getUsers();
+            })
     }
 
     ngOnInit(): void {

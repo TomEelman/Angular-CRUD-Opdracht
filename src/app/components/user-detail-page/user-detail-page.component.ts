@@ -23,7 +23,7 @@ export class UserDetailPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.userId){
+    if (this.userId) {
       this.user = this.userService.getUserById(this.userId);
     }
   }

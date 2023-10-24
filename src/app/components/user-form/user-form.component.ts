@@ -33,14 +33,14 @@ export class UserFormComponent implements OnDestroy {
             .pipe(takeUntil(this.unsubscriber$))
             .subscribe((x) => {
                 console.log(x);
-        })
+            })
     }
 
-    private getUserById(userId: number){
+    private getUserById(userId: number) {
         const user = this.userService.getUserById(userId);
-        if(user){
+        if (user) {
             this.user = user;
-        }        
+        }
     }
 
     private createEmptyUser() {
@@ -67,10 +67,10 @@ export class UserFormComponent implements OnDestroy {
         )
     }
 
-    onSubmit() {
+    public onSubmit() {
         if (this.validate()) {
             const user = new User({
-                id: new Date().getTime(),
+                id: this.editMode ? this.userId : new Date().getTime(),
                 firstname: this.user.firstname,
                 infix: this.user.infix,
                 lastname: this.user.lastname,
@@ -89,9 +89,9 @@ export class UserFormComponent implements OnDestroy {
                 this.userService.addUser(user);
             }
             this.router.navigate(['/']);
-            
         }
     }
+
     ngOnDestroy(): void {
         this.unsubscriber$.next("unsubscribe");
         this.unsubscriber$.complete();

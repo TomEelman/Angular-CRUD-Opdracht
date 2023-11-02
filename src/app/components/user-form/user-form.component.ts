@@ -82,12 +82,10 @@ export class UserFormComponent implements OnDestroy {
             });
 
             if (this.editMode) {
-                if (confirm("Dit zal de gebruiker zijn informatie aanpassen!")) {
-                    this.userService.editUser(user);
-                }
+                this.userService.editUser(user);
             } else {
                 this.userService.addUser(user);
-            }
+            }            
             this.router.navigate(['/']);
         }
     }
